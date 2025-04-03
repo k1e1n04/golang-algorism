@@ -24,10 +24,10 @@ func main() {
 	dp := make([][]int, N+1)
 	for i := range dp {
 		dp[i] = make([]int, W+1)
-		// 0で初期化は省略可能（Goのデフォルト）
 	}
 
 	for i := 0; i < N; i++ {
+		// jはナップサックに入る残りの重さ
 		for j := 0; j <= W; j++ {
 			if j-w[i] >= 0 {
 				utils.Chmax(&dp[i+1][j], dp[i][j-w[i]]+v[i])
